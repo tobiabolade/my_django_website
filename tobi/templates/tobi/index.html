@@ -1,0 +1,26 @@
+{% extends 'tobi/base.html' %}
+{% block title %} Tobi {% endblock %}
+{% block body%}
+    <div class="container-fluid">
+        <div class="page-header">
+             <h2>>Welcome to {{ person.name }}'s world <small>  {{person.email}} -- LinkedIn - Abolade Tobi</small></h2>
+        </div>
+        <div class="col-sm-4 col-md-8">
+        <p style: bg-color:"#FFFFF">My name is {{ person.name }}. I am a graduate of Ladoke Akintola University of technology. I am a {{person.occupation}}</p>
+        <p>I am a cool, gentle, and ambitious man. I am able to adapt well to changes, and i can easily learn new things. I am a software developer with skills in languages like Java,
+        Python, databases like MySQL and Oracle. I design websites using Django Framework. I also have skills in HTML and CSS. My hobbies are watching movies, playing video games and
+        playing football</p>
+        </div>
+        
+        <div class="col-sm-8 col-md-4">
+            <img src="{{person.picture.url}}" class="img-responsive"  width="300" heigth="250"/>
+        </div>
+        
+        <div class="col-sm-12 col-md-12">
+            <p>There are a number of projects i've worked on in different languages like java, python and also includes databese using MySQL. You can find the <a href="{% url 'code' %}"> codes </a>
+            here. </p>
+              
+        </div>    
+          
+    </div>
+{% endblock %}

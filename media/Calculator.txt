@@ -1,0 +1,302 @@
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+
+public class Calculator{
+	final static boolean shouldfill = true;
+	final static boolean shouldweightX = true;
+	final static boolean RIGHT_TO_LEFT = false;
+
+	static double a = 0, b = 0, result = 0;
+	static int operator = 0;
+
+	public static void addComponentsToPane(Container pane){
+
+		if (RIGHT_TO_LEFT) {
+			pane.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+		}
+                JPanel screenn = new JPanel();
+                JPanel buttons = new JPanel();
+                buttons.setLayout(new GridBagLayout());
+                screenn.setLayout(new FlowLayout());
+		JButton button;
+		JTextField tf;
+                GridBagLayout main = new GridBagLayout();
+		pane.setLayout(main);
+                GridBagConstraints cc = new GridBagConstraints();
+		GridBagConstraints c = new GridBagConstraints();
+		if (shouldfill) {
+			c.fill = GridBagConstraints.HORIZONTAL;
+		}
+
+		tf = new JTextField(30);                
+                screenn.add(tf);
+                c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 1;
+		c.gridy = 1;
+		c.weightx = 0.0;
+		pane.add(screenn, c);
+                
+                
+		//c.insets = new Insets(10,0,0,0);
+		//pane.add(tf, c);
+
+		button = new JButton("7");
+		if (shouldweightX) {
+			c.weightx = 0.5;
+		}
+
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 0;
+		c.gridy = 0;
+		buttons.add(button, c);
+		  button.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent ae) {
+        tf.setText(tf.getText().concat("7"));
+}
+}); 
+
+
+		button = new JButton("8");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.weightx = 0.5;
+		c.gridx = 1;
+		c.gridy = 0;
+		buttons.add(button, c);
+		  button.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent ae) {
+        tf.setText(tf.getText().concat("8"));
+}
+});  
+                
+		button = new JButton("9");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.weightx = 0.5;
+		c.gridx = 2;
+		c.gridy = 0;
+		buttons.add(button, c);
+		  button.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent ae) {
+        tf.setText(tf.getText().concat("9"));
+}
+}); 
+
+		button = new JButton("/");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.weightx = 0.5;
+		c.gridx = 3;
+		c.gridy = 0;
+		buttons.add(button, c);
+		  button.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent ae) {
+        a = Double.parseDouble(tf.getText());
+        operator = 3;
+        tf.setText("");
+}
+}); 
+
+		button = new JButton("4");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.weightx = 0.5;
+		c.gridx = 0;
+		c.gridy = 1;
+		buttons.add(button, c);
+		  button.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent ae) {
+        tf.setText(tf.getText().concat("4"));
+}
+}); 
+
+		button = new JButton("5");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.weightx = 0.5;
+		c.gridx = 1;
+		c.gridy = 1;
+		buttons.add(button, c);
+		  button.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent ae) {
+        tf.setText(tf.getText().concat("5"));
+}
+}); 
+
+		button = new JButton("6");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.weightx = 0.5;
+		c.gridx = 2;
+		c.gridy = 1;
+		buttons.add(button, c);
+		  button.addActionListener(new ActionListener() {
+                       public void actionPerformed(ActionEvent ae) {
+        tf.setText(tf.getText().concat("6"));
+}
+}); 
+
+		button = new JButton("*");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.weightx = 0.5;
+		c.gridx = 3;
+		c.gridy = 1;
+		buttons.add(button, c);
+		  button.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent ae) {
+        a = Double.parseDouble(tf.getText());
+        operator = 4;
+        tf.setText("");
+}
+}); 
+
+		button = new JButton("1");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.weightx = 0.5;
+		c.gridx = 0;
+		c.gridy = 2;
+		buttons.add(button, c);
+		  button.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent ae) {
+        tf.setText(tf.getText().concat("1"));
+}
+}); 
+
+		button = new JButton("2");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.weightx = 0.5;
+		c.gridx = 1;
+		c.gridy = 2;
+		buttons.add(button, c);
+		  button.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent ae) {
+        tf.setText(tf.getText().concat("2"));
+}
+}); 
+
+		button = new JButton("3");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.weightx = 0.5;
+		c.gridx = 2;
+		c.gridy = 2;
+		buttons.add(button, c);
+		  button.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent ae) {
+        tf.setText(tf.getText().concat("3"));
+}
+}); 
+
+		button = new JButton("-");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.weightx = 0.5;
+		c.gridx = 3;
+		c.gridy = 2;
+		buttons.add(button, c);
+		  button.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent ae) {
+        a = Double.parseDouble(tf.getText());
+        operator = 2;
+        tf.setText("");;
+}
+});   
+                
+                button = new JButton("0");
+                c.fill = GridBagConstraints.HORIZONTAL;
+                c.weightx = 0.5;
+                c.gridx = 0;
+                c.gridy = 3;
+                buttons.add(button, c);
+                  button.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent ae) {
+        tf.setText(tf.getText().concat("0"));
+}
+}); 
+                
+                button = new JButton(".");
+                c.fill = GridBagConstraints.HORIZONTAL;
+                c.weightx = 0.5;
+                c.gridx = 1;
+                c.gridy = 3;
+                buttons.add(button, c);
+                  button.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent ae) {
+        tf.setText(tf.getText().concat("."));
+}
+}); 
+                
+                button = new JButton("=");
+                c.fill = GridBagConstraints.HORIZONTAL;
+                c.weightx = 0.5;
+                c.gridx = 2;
+                c.gridy = 3;
+                buttons.add(button, c);
+                  button.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent ae) {
+        b=Double.parseDouble(tf.getText());
+        switch (operator)
+        {
+        	case 1: result = a+b;
+        	break;
+
+        	case 2: result =  a-b;
+        	break;
+
+        	case 3: result = a/b;
+        	break;
+
+        	case 4: result = a*b;
+        	break;
+
+        	default: result = 0;
+        }
+        tf.setText("" + result);
+}
+}); 
+                
+                button = new JButton("+");
+                c.fill = GridBagConstraints.HORIZONTAL;
+                c.weightx = 0.5;
+                c.gridx = 3;
+                c.gridy = 3;
+                buttons.add(button, c);
+                  button.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent ae) {
+        a = Double.parseDouble(tf.getText());
+        operator = 1;
+        tf.setText("");
+}
+});
+
+        button = new JButton("clr");
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.weightx = 0.5;
+        c.gridx = 0;
+        c.gridy = 4;
+        c.gridwidth = 2;
+        buttons.add(button, c);
+        button.addActionListener(new ActionListener(){
+        	public void actionPerformed(ActionEvent ae){
+        		tf.setText("");
+        	}
+        });
+                
+                c.gridx = 1;
+		c.gridy = 2;
+		c.weightx = 0.0;
+                pane.add(buttons, c);
+	}
+
+
+	private static void createAndShowGUI(){
+		JFrame f = new JFrame("Calculator");
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		addComponentsToPane(f.getContentPane());
+		f.pack();
+		f.setVisible(true);	}
+
+	public static void main(String[] args) {
+		
+SwingUtilities.invokeLater(new Runnable() {
+	public void run() {
+		createAndShowGUI();
+			}
+		});
+
+	}
+}    
+

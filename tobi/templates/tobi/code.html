@@ -1,0 +1,18 @@
+{% extends 'tobi/base.html' %}
+{% block body %}
+<div class="col-sm-12 col-md-12">
+    <h4>Below are some of the software language i use</h4>
+    <ul>
+    {% for code in code %}
+        <li class="active">
+            <div class="thumbnail">
+                <img src="{{code.lang_logo.url}}" class="img-responsive" width="300" height="200"/>
+            </div>
+            
+            <div class="caption">
+                <a href="{{ code.get_absolute_url }}"> {{code.code_type}} </a></li>
+            </div>   
+    {% endfor %}
+    </ul>
+</div>
+{% endblock %}
